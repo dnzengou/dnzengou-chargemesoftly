@@ -1,0 +1,181 @@
+
+
+<!doctype html>
+<html lang="en-US" ID="smartways-com/mobile">
+ <head>
+  <meta charset="utf-8">
+   <title>Charge Me Softly</title>
+   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+     <meta name="apple-mobile-web-app-status-bar-style" content="translucent black">
+      <meta name="author" content="dnzengou">
+       <meta name="description" content="Your smart ways to get anywhere - with one click">
+        <meta name="keywords" content="geolocation app, iPhone, Android, blackberry, jQuerymobile, kindle, ipad, map, Google, world, charger, map, geolocation">
+         <meta name="robots" content="all">
+          <link rel="icon" href="logo57x57.png"><!--N57.png-->
+           <link rel="apple-touch-icon" href="logo57x57.png"><!--N57.png-->
+            <link rel="apple-touch-icon" sizes="72x72" href="logo72x72.png"/><!--N72.png-->
+            <link rel="apple-touch-icon" sizes="114x114" href="logo114x114.png"/><!--N114.png-->
+			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+
+    <!--Font Awesome-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+			<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+			<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>      
+           </head>
+           <body>
+            <div data-role="page" id="pg-home">
+             <div data-role="header" data-nobackbtn="true"><h1>ChargeMeSoftly</h1><a href="#page1" data-role="button" data-icon="info" class="ui-btn-right">About</a></div>
+             <div data-role="content" data-inset="true">
+              <b>BETA</b>
+             </div>
+
+
+             <div data-role="content" data-inset="true">
+              <ul data-role="listview" data-dividertheme="a" data-inset="true">
+               <li data-role="list-divider"><h1>Searching for </h1></li>
+               <li>
+                <a href="mylocation.html" rel=""><h1> Beautiful charging boxes</h1><p>near me</p></a>
+               </li>
+               <li>
+                <a href="#" rel="external"><h1> Deals, gifts and offers</h1><p>from my favorite venues</p></a>
+               </li>
+               <li>
+                <a href="#page2" rel="external"><h1> Sharing my location</h1>
+                <p>to be part of our estimated community or users</p> and enjoy limited offers from selected partners</a>
+               </li>
+               <li data-theme="a">
+                <a href="http://justrun-the-chatroom.azurewebsites.net/" rel="external"><h1>Enter the Chatroom</h1><p>Talk to other riders or to our bot</p></a></li>
+               <li data-theme="a">
+                <a href="http://www.addthis.com/bookmark.php?url=newspapermap.com/&amp;title=Charge%20Me%20Softly%20|%20online%20locations%20in%20the%20world%20at%20the%20reach%20of%20one%20finger"><h1>Sharing is caring</h1><p>Spread the word on your favorite social media</p></a></li>
+           </ul>
+          </div>
+         </div>
+         <div data-role="page" id="page1" data-inset="true">
+          <div data-role="header" data-theme="a"><h1>About</h1></div>
+          <div data-role="content" data-inset="true">
+           <div>
+             ChargeMeSoftly map is developed by
+            <a href="http://dnzengou.github.io/cvstrap/">Desire Yavro</a>, Belgium. Feel free to contact with feedback.
+          </div>
+          <ul data-role="listview" data-dividertheme="a" data-inset="true">
+           <li><a href="#" rel="external">Presentation</a></li>
+           <li><a href="https://docs.google.com/forms/d/1cXHqKI5VmdB0N6wus75kJLuWooYWkEQs9fCp8-2p3GQ/edit?usp=forms_home" rel="external">add / correct your location</a></li>
+           <li><a href="http://www.chargemesoftly.co/privacy-policy/" rel="external">privacy policy</a></li>
+           <li data-role="list-divider">contact/follow us</li>
+           <li><a href="http://www.smartways.co/blog" rel="external">blog</a></li>
+           <li><a href="http://m.facebook.com/chargemesoftly" rel="external">facebook</a></li>
+           <li><a href="mailto:me@chargemesoftly.co" rel="external">e-mail</a></li>
+           <li><a href="http://mobile.twitter.com/smartways" rel="external">twitter</a></li>
+           <li><a href="" rel="external">Copyright &copy; dnzengou 2016</a></li>
+          </ul>
+          </div>
+        </div>
+
+        <div data-role="page" id="page2" data-inset="true">
+          <div data-role="header" data-theme="a"><h1>My location</h1></div>
+          <div data-role="content" data-inset="true">
+
+    <p id="error" style="color:#f00; font-weight:bold;"></p>
+    <form id="location" action="/index.php" method="post" autocomplete="off">
+      <input type="hidden" name="batt" id="batt" value="-1" readonly="readonly">
+      <input type="hidden" name="time" id="time" readonly="readonly">
+      <p id="loading">Requesting access / Loading location data...</p>
+      <div id="geolocation" style="display:none;">
+        <div>
+          <label for="lat">Latitude :</label>
+          <input type="text" name="lat" id="lat" readonly="readonly">
+        </div>
+        <div>
+          <label for="lng">Longitude :</label>
+          <input type="text" name="lng" id="lng" readonly="readonly">
+        </div>
+        <div>
+          <label for="acc">Accuracy (m.) :</label>
+          <input type="text" name="acc" id="acc" readonly="readonly">
+        </div>
+        <div>
+          <label>Address :</label><br>
+          <address id="addr"></address>
+        </div>
+        <div id="send">
+          <button type="submit" name="action" value="send">SEND NOW</button>
+        </div>
+      </div>
+    </form>
+    <p class="legal">* Irresponsible use of this emergency service is punishable under federal law.</p>
+  </div>
+  <script>
+    function init() {
+      if ('geolocation' in navigator) {
+        navigator.geolocation.watchPosition(function(position) {
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('geolocation').style.display = '';
+
+          console.log(position);
+
+          document.getElementById('time').value = position.timestamp;
+          document.getElementById('lat').value = Math.round(position.coords.latitude  * 1000000) / 1000000;
+          document.getElementById('lng').value = Math.round(position.coords.longitude * 1000000) / 1000000;
+          document.getElementById('acc').value = Math.round(position.coords.accuracy * 10) / 10;
+
+          var geocoder = new google.maps.Geocoder;
+          geocoder.geocode({'location': {lat: position.coords.latitude, lng: position.coords.longitude} }, function(results, status) {
+            //console.log(results, status);
+            if (status === google.maps.GeocoderStatus.OK) {
+              document.getElementById('addr').innerText = results[0].formatted_address;
+            }
+          });
+        },
+        function(error) {
+          document.getElementById('loading').remove();
+          document.getElementById('error').innerText = error.message;
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10*1000,
+          maximumAge: 5*60*1000
+        });
+      } else {
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('error').innerText = 'Le service de géolocalisation n\'est pas disponible sur votre ordinateur.';
+      }
+
+      if ('battery' in navigator) {
+        navigator.getBattery().then(function(battery) {
+          //console.log(battery);
+          document.getElementById('batt').value = battery.level;
+        });
+      }
+    }
+  </script>
+
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsbzuJDUEOoq-jS1HO-LUXW4qo0gW9FNs&amp;language=en&amp;callback=init" async defer></script>
+
+
+<!--<script>
+	// Google Analytics tracker
+
+  //var _gaq=[['_setAccount','UA-19887300-3'],['_trackPageview']];
+	//(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+	//g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	//s.parentNode.insertBefore(g,s)}(document,'script'));
+</script> -->
+
+<!-- google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78251189-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+</body> 
+</html>

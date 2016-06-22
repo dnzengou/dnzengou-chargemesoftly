@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+  <html class="iem7">
+<![endif]-->
+<html class=no-js id="mylocationmap-com" lang="en">
+ <head>
+  <meta charset=utf-8>
+  <title>My Location</title>
+  <meta content="Emergency Sphere Map | find and activate all emergency spheres in the world " name=description>
+  <meta content=DesireYavro name="author">
+  <meta content="Biggest list of emergency spheres - showing locations of main parks and parkings worldwide
+  geolocation app, iPhone, Android, blackberry, jQuerymobile, kindle, ipad, map, Google, world, licrosoft" name="keywords">
+  <meta name="google" content="notranslate">
+  <meta content=all name=robots>
+  <meta content="width=device-width, initial-scale=1.0, chrome=1" name=viewport>
+
+    <!--Font Awesome-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+  <link href="assets/css/min.css" rel=stylesheet type='text/css'>
+  <script type="text/javascript" src="assets/js/modernizr.js"></script>
+   
+  <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144-precomposed.png">-->
+  <link href=apple-touch-icon-114x114-precomposed.png rel=apple-touch-icon-precomposed sizes=114x114>
+  <link href=apple-touch-icon-72x72-precomposed.png rel=apple-touch-icon-precomposed sizes=72x72>
+  <link href=apple-touch-icon-57x57-precomposed.png rel=apple-touch-icon-precomposed sizes=57x57>
+  <link href=apple-touch-icon-precomposed.png rel=apple-touch-icon-precomposed>
+  <link href=apple-touch-icon.png rel="shortcut icon">
+  <link href="/favicon.ico" rel="shortcut icon">
+  <!--<meta content="newspaper map | â°" property=og:title>
+  <meta content=website property=og:type>
+  <meta content="http://newspapermap.com/" property=og:url>
+  <meta content="http://newspapermap.com/apple-touch-icon-114x114-precomposed.png" property=og:image>-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+
+  <meta content="my location map" property="og:site_name">
+  <meta content=yes name=apple-mobile-web-app-capable>
+  <meta content=black-translucent name=apple-mobile-web-app-status-bar-style>
+  <!--[if IE]><meta http-equiv="cleartype" content="on"><![endif]-->
+  <!--[if lt IE 8 ]><script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script><script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script><![endif]-->
+  <link href="/" rel=canonical>
+
+
+<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+  <!-- style leaflet map -->
+<style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    html, body, #map {
+      height: 100%;
+    }
+  </style>
+
+ </head>
+ <body>
+  <div class="navbar navbar-fixed-top">
+   <div class=navbar-inner>
+    <div class=container><img alt=logo height=30 src=assets/img/logo.png style="float:left; padding:10px;" width=20><!-- width=20 -->
+     <a class="btn btn-navbar" data-target=.nav-collapse data-toggle=collapse>
+      <span class=icon-bar></span>
+      <span class=icon-bar></span>
+      <span class=icon-bar></span>
+     </a>
+     <a class="brand hidden-tablet" href="http://www.smartway.co" style="font-family: Georgia, 'Times New Roman', Times, serif; text-shadow:#000 0 1px 0;">my location</a>
+     <div class=nav-collapse>
+      <ul class="nav nav-pills">
+       <li class="dropdown hidden-phone hidden-tablet">
+        <a class=dropdown-toggle data-toggle=dropdown href="#">
+         <i class="icon-plus-sign icon-white"></i>
+         More<b class=caret></b>
+        </a>
+        <ul class=dropdown-menu>
+         <li><a href="https://www.google.be/?gfe_rd=cr&ei=s4IwV9LmNa-LtgeL9IbwCQ#q=traffic">Custom search</a></li>
+        </ul>
+       </li>
+       <li class="dropdown hidden-phone hidden-tablet">
+        <a class=dropdown-toggle data-toggle=dropdown href="#">
+         <i class="icon-pencil icon-white"></i>
+         Contact<b class=caret></b>
+        </a>
+        <ul class=dropdown-menu>
+         <li style="margin-left:15px"><a href="https://twitter.com/emergencysphere" class="twitter-follow-button" data-show-count="true">Follow
+          @smartways</a></li>
+         <li><a href="https://twitter.com/intent/user?screen_name=smwartway">twitter.com/smartway</a></li>
+         <li class=divider></li>
+         <li>
+          <div class=fb-like data-href="http://facebook.com/emergencysphere/" data-layout=button_count data-send=false data-show-faces=false data-width=50 style=margin-left:15px></div>
+          <a href="//facebook.com/newspapermap">facebook.com/smartway</a></li>
+         <li class=divider></li>
+         <li><a href="mailto:emergencysphere@gmail.com">me@smartway.co</a></li>
+         <li class=divider></li>
+         <li><a href="">&copy; dnzengou 2016</a></li>
+        </ul>
+       </li>
+       <li class=navbar-search>
+        <select class=span2 id=lang onChange="changeMap0();" title="Select to show only smart ways in specific locations">
+         <option value="">Filter by location</option>
+         <option value="">ALL</option>
+         <option value=UK>UK</option>
+         <option value=BE>BE</option>
+         <option value=DE>DE</option>
+        </select>
+       </li>
+       <li class=navbar-search>
+        <input autocomplete=off class=input-medium id=paper onClick="this.value='';" onFocus="searchTextField.value='';" onKeyDown="if (event.keyCode==13) changeData(this.value);" onwebkitspeechchange="changeData(this.value)" placeholder="ID" style="margin-left:5px;" x-webkit-speech>
+       </li>
+       <li class=navbar-search>
+        <input autocomplete=off class=input-medium id=searchTextField onClick="this.value='';" onFocus="paper.value='';" placeholder="Location" style="margin-left:5px;" x-webkit-speech>
+       </li>
+       <li>
+        <div class="btn-group">
+         <a class="btn btn-primary btn-small alignleft tooltip_bottom" onClick="locategps();" style="margin-left:5px;" title="Home">
+          <i class="fa fa-map-marker"></i>
+          <!--"icon-home icon-white"-->
+         </a>
+         <a class="btn btn-primary btn-small alignleft tooltip_bottom" onClick="changeMap6();" title="Reset">
+          <i class="fa fa-refresh"></i>
+          <!--"icon-plus-sign icon-white"-->
+         </a>
+         <a class="btn btn-warning btn-small alignleft tooltip_bottom hidden-phone" data-toggle=modal href='' title="About the map">
+          <i class="fa fa-info-circle"></i>
+          <!-- "icon-info-sign icon-white" -->
+         </a>
+         <a class="btn btn-alert alignleft btn-small" href='m.html'><i class="fa fa-mobile"></i></a>
+        </div>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <div id="map"></div>
+<!-- leaflet map -->
+
+
+  <div class="modal noisedark fade hidden-phone" id=myModal>
+  <!-- "modal hide fade" -->
+   <div class=modal-header>
+    <a class=close data-dismiss=modal style="color:#FFF">&times;</a>
+    <h3 style="color:#FFF; text-shadow:#000 0 1px 0;">All smart ways are first local</h3>
+    <p>Smart way location to show to better get to where you want, alone or co-riding. In your country.</p>
+   </div>
+   <div class=modal-body>
+    We will be indexing all country smart ways and plot their correct locations. Some might be missing, or not in their correct locations.
+    <br>Add new ones
+    here:<a href='https://docs.google.com/forms/d/1cXHqKI5VmdB0N6wus75kJLuWooYWkEQs9fCp8-2p3GQ/edit?usp=forms_home' class="btn btn-primary btn-mini">
+     <i class="icon-pencil icon-white"></i>
+     add/correct</a><br>
+   </div>
+   <div class="modal-footer noisedark">
+    <a href="https://twitter.com/intent/user?screen_name=newspapermap&amp;source=followbutton&amp;variant=1.0"><img alt=twitter-logo class=tooltip-test height=30 id=twitter-logo src="assets/img/twitter-logo-white.png" title="Follow @smartway on twitter for updates" width=30></a>
+    <p>And of course, feel free to buy us a cup of tea to keep us coding</p>
+    <form action="" method=post style=float:left>
+    <!-- https://www.paypal.com/cgi-bin/webscr -->
+     <input name=cmd type=hidden value=_s-xclick>
+     <input name=hosted_button_id type=hidden value="">
+     <button class="btn btn-primary" name=submit>
+      <i class="icon-plus icon-white"></i>
+      Donate</button>
+     <img alt="" height=1 src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width=1></form>
+   </div>
+  </div>
+
+  <!-- google viz place holder -->
+  <!--<script type="text/javascript" src="https://www.google.com/jsapi?" type="text/javascript"></script>
+  <script>
+  google.load('maps', '3.exp', {
+    other_params: 'libraries=places&sensor=false'
+  });
+  google.load('visualization', '1.1', {
+    
+  });
+
+  </script>-->
+
+<script>
+    //var map = L.map('map').setView([50.683, 4.382], 13);
+    var map = L.map('map');
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
+      maxZoom: 18,
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+        '<a href="http://dnzengou.github.io/cvstrap/"> DesireYavro</a>, ' +
+        '© 2016 <a href="http://mapbox.com">Mapbox</a>',
+      id: 'mapbox.streets'
+    }).addTo(map);
+
+    function onLocationFound(e) {
+      var radius = e.accuracy / 2;
+
+      L.marker(e.latlng).addTo(map)
+        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+      L.marker([50.683, 4.382]).addTo(mymap)
+      .bindPopup("<b>Hello world!</b><br />Emergency Sphere #1 here.").openPopup();
+
+      L.circle(e.latlng, radius).addTo(map);
+    }
+
+    function onLocationError(e) {
+      alert(e.message);
+    }
+
+    map.on('locationfound', onLocationFound);
+    map.on('locationerror', onLocationError);
+
+    map.locate({setView: true, maxZoom: 16});
+
+
+  </script>
+
+
+<!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCsbzuJDUEOoq-jS1HO-LUXW4qo0gW9FNs"></script>-->
+
+    <!--[if lt IE 9]>
+     <script type="text/javascript" src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+    <!--<script type="text/javascript" src='//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js'></script>-->
+    <!--<![endif]-->          
+  <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/js/typeahead.min.js"></script>
+  <!--<script type="text/javascript" src="assets/js/app.js"></script>-->
+ <!--<script>
+   var _gaq=[['_setAccount','UA-19887300-3'],['_trackPageview']];
+   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async = true;
+   g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+   s.parentNode.insertBefore(g,s)}(document,'script'));
+ </script>-->
+  <!--[if IE]>
+<script src='assets/js/jquery.placeholder.min.js'></script>
+<script>$('input[placeholder], textarea[placeholder]').placeholder();</script>
+<![endif]-->
+
+
+<!-- google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78251189-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+ </body>
+</html>
