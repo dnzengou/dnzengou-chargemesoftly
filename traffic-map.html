@@ -1,20 +1,141 @@
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <title>Map with Transit layer</title>
+<!--[if lt IE 9]>
+  <html class="iem7">
+<![endif]-->
+<html class=no-js id="trafficmap-com" lang="en">
+ <head>
+  <meta charset=utf-8>
+  <title>ApiJam</title>
+  <meta content="Traffic Map | find your reliable commute and share the ride" name=description>
+  <meta content=dnzengou name="author">
+  <meta content="Reliable commute ways - showing traffic, bike and public transport layers worldwide
+  geolocation app, iPhone, Android, blackberry, jQuerymobile, kindle, ipad, map, Google, world, licrosoft" name="keywords">
+  <meta name="google" content="notranslate">
+  <meta content=all name=robots>
+  <meta content="width=device-width, initial-scale=1.0, chrome=1" name=viewport>
 
-    <link href=
-    "//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Product+Sans:400&amp;lang=en" rel=
-    "stylesheet">
+    <!--Font Awesome-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
-    <!-- ===========================
-    STYLESHEETS
-    =========================== -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+  <link href="assets/css/min.css" rel=stylesheet type='text/css'>
+  <script type="text/javascript" src="assets/js/modernizr.js"></script>
+   
+  <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144-precomposed.png">-->
+  <link href=apple-touch-icon-114x114-precomposed.png rel=apple-touch-icon-precomposed sizes=114x114>
+  <link href=apple-touch-icon-72x72-precomposed.png rel=apple-touch-icon-precomposed sizes=72x72>
+  <link href=apple-touch-icon-57x57-precomposed.png rel=apple-touch-icon-precomposed sizes=57x57>
+  <link href=apple-touch-icon-precomposed.png rel=apple-touch-icon-precomposed>
+  <link href=apple-touch-icon.png rel="shortcut icon">
+  <link href="/favicon.ico" rel="shortcut icon">
+  <meta content="fusion table layers map | â°" property=og:title>
+  <meta content=website property=og:type>
+  <meta content="http://apijam.co/" property=og:url>
+  <meta content="http://apijam.co/apple-touch-icon-114x114-precomposed.png" property=og:image>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<!--<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />-->
+
+  <meta content="traffic map" property="og:site_name">
+  <meta content=yes name=apple-mobile-web-app-capable>
+  <meta content=black-translucent name=apple-mobile-web-app-status-bar-style>
+  <!--[if IE]><meta http-equiv="cleartype" content="on"><![endif]-->
+  <!--[if lt IE 8 ]><script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script><script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script><![endif]-->
+  <link href="/" rel=canonical>
+
+
+<!--<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>-->
+
+  <!-- style leaflet map -->
+<style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    html, body, #map {
+      height: 100%;
+    }
+  </style>
+
+ </head>
+ <body>
+  <div class="navbar navbar-fixed-top">
+   <div class=navbar-inner>
+    <div class=container><img alt=logo height=30 src=assets/img/logo.png style="float:left; padding:10px;" width=20><!-- width=20 -->
+     <a class="btn btn-navbar" data-target=.nav-collapse data-toggle=collapse>
+      <span class=icon-bar></span>
+      <span class=icon-bar></span>
+      <span class=icon-bar></span>
+     </a>
+     <a class="brand hidden-tablet" href="http://www.apijam.co" style="font-family: Georgia, 'Times New Roman', Times, serif; text-shadow:#000 0 1px 0;">Traffic map</a>
+     <div class=nav-collapse>
+      <ul class="nav nav-pills">
+       <li class="dropdown hidden-phone hidden-tablet">
+        <a class=dropdown-toggle data-toggle=dropdown href="#">
+         <i class="icon-plus-sign icon-white"></i>
+         More<b class=caret></b>
+        </a>
+        <ul class=dropdown-menu>
+         <li><a href="https://www.google.be/?gfe_rd=cr&ei=s4IwV9LmNa-LtgeL9IbwCQ#q=traffic">Custom search</a></li>
+        </ul>
+       </li>
+       <li class="dropdown hidden-phone hidden-tablet">
+        <a class=dropdown-toggle data-toggle=dropdown href="#">
+         <i class="icon-pencil icon-white"></i>
+         Contact<b class=caret></b>
+        </a>
+        <ul class=dropdown-menu>
+         <li style="margin-left:15px"><a href="https://twitter.com/apijam" class="twitter-follow-button" data-show-count="true">Follow
+          @apijam</a></li>
+         <li><a href="https://twitter.com/intent/user?screen_name=apijam">twitter.com/apijam</a></li>
+         <li class=divider></li>
+         <li>
+          <div class=fb-like data-href="http://facebook.com/apijam/" data-layout=button_count data-send=false data-show-faces=false data-width=50 style=margin-left:15px></div>
+          <a href="//facebook.com/apijam">facebook.com/apijam</a></li>
+         <li class=divider></li>
+         <li><a href="mailto:me@apijam.co">me@apijam.co</a></li>
+         <li class=divider></li>
+         <li><a href="">&copy; dnzengou 2016</a></li>
+        </ul>
+       </li>
+       <li class=navbar-search>
+        <select class=span2 id=lang onChange="changeMap0();" title="Select to show only rides ways in specific locations">
+         <option value="">Filter by location</option>
+         <option value="">ALL</option>
+         <option value=UK>UK</option>
+         <option value=BE>BE</option>
+         <option value=DE>DE</option>
+        </select>
+       </li>
+       <!--<li class=navbar-search>
+        <input autocomplete=off class=input-medium id=paper onClick="this.value='';" onFocus="searchTextField.value='';" onKeyDown="if (event.keyCode==13) changeData(this.value);" onwebkitspeechchange="changeData(this.value)" placeholder="ID" style="margin-left:5px;" x-webkit-speech>
+       </li>
+       <li class=navbar-search>
+        <input autocomplete=off class=input-medium id=searchTextField onClick="this.value='';" onFocus="paper.value='';" placeholder="Location" style="margin-left:5px;" x-webkit-speech>
+       </li>-->
+       <li>
+        <div class="btn-group">
+         <a class="btn btn-primary btn-small alignleft tooltip_bottom" onClick="locategps();" style="margin-left:5px;" title="Home">
+          <i class="fa fa-map-marker"></i>
+          <!--"icon-home icon-white"-->
+         </a>
+         <a class="btn btn-primary btn-small alignleft tooltip_bottom" onClick="changeMap6();" title="Reset">
+          <i class="fa fa-refresh"></i>
+          <!--"icon-plus-sign icon-white"-->
+         </a>
+         <a class="btn btn-warning btn-small alignleft tooltip_bottom hidden-phone" data-toggle=modal href='#' title="About the map">
+          <i class="fa fa-info-circle"></i>
+          <!-- "icon-info-sign icon-white" -->
+         </a>
+         <a class="btn btn-alert alignleft btn-small" href='#'><i class="fa fa-mobile"></i></a>
+        </div>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+
 
     <style>
       html, body {
@@ -27,8 +148,11 @@
       }
     </style>
 
-     <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true&amp;language=en&amp;callback=initMap&amp;signed_in=true">
-        </script>
+     <!--<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true&amp;language=en&amp;signed_in=true">
+        </script>-->
+
+        <!--Google maps API linl-->
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCsbzuJDUEOoq-jS1HO-LUXW4qo0gW9FNs&amp;sensor=true&amp;language=en&amp;signed_in=true"></script>
 
 
         <script type="text/javascript" src="assets/js/fusiontips.js">
@@ -36,7 +160,7 @@
         <script type="text/javascript" id="script">
             
             var map, layer;
-            var googleApiKey = "AIzaSyCsbzuJDUEOoq-jS1HO-LUXW4qo0gW9FNs"; // Get from Google API console https://code.google.com/apis/console
+            var googleApiKey = "AIzaSyCsbzuJDUEOoq-jS1HO-LUXW4qo0gW9FNs"; // Get from Google API console https://code.google.com/apis/console 
       var geometryColumn = "latlon"; // geometry column name, may be Address for a points map
       var tableid = '1bpjVp3U_Etpq_57_lz_E4thrh-qXHSDs4jI4_doX'; // Take from Fusion Tables About page
       var defaultCenter = new google.maps.LatLng(50.8504, 4.3517); // Map centre in lat/lon for default and reset
@@ -141,21 +265,40 @@
 
         <body onload="initialize();">
 
-<div>
+
+<!--<style>
+    #menu {
+        position: absolute;
+        background: #E5E5E5;
+        padding: 10px;
+        font-family: 'Open Sans', sans-serif;
+  top:140px;right:10px;
+  z-index:1;
+  border-radius:3px;
+  width:240px;
+  border:1px solid rgba(0,0,0,0.4);
+    }
+</style>-->
+
+<br>
+<br>
+
+          
+          <div id='map'></div>
+
+
+  <!--<div id="menu">
       <label>Zoom to a location:</label>
       <input type="text" id="address" value="">
       <input type="button" id="search" value="Search">
       <input type="button" id="reset" value="Reset">
-    </div>
 
-<form action="location.html">
+      <form action="#">
   Add a new location :
   <input type="image" src="assets/img/share.png" alt="submit">
-</form>
-<!-- <input type="text" name="fname"> -->
-  
-      <div id="map">
-        </div>
+</form>-->
+
+
 
 
 
@@ -164,8 +307,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    <script src="js/jquery.nicescroll.min.js"></script>
-    <script src="js/evenfly.js"></script>
+
+
+<!-- google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78251189-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 </body>
 
