@@ -1,177 +1,205 @@
-
-
 <!doctype html>
+
 <html lang="en-US" ID="charles-com/mobile">
- <head>
-  <meta charset="utf-8">
-   <title>Charles</title>
-   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+<head>
+    <meta charset="utf-8">
+    <title>Charles</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
-     <meta name="apple-mobile-web-app-status-bar-style" content="translucent black">
-      <meta name="author" content="dnzengou">
-       <meta name="description" content="Your mobile charger butler, anywhere anytime - with one click">
-        <meta name="keywords" content="geolocation app, iPhone, Android, blackberry, jQuerymobile, kindle, ipad, map, Google, world, charger, map, geolocation">
-         <meta name="robots" content="all">
+    <meta name="apple-mobile-web-app-status-bar-style" content="translucent black">
+    <meta name="author" author="DesireYavro">
+    <!--<meta name="description" content="Your mobile charger butler, anywhere anytime - with one click">-->
+    <meta name="description" content="Charles Map, lightweight, easy and of quick access | Check traffic, find a reliable commute and share the ride. Whenever you want, wherever you want, in one click.">
+    <meta name="keywords" content="geolocation app, iPhone, Android, blackberry, jQuerymobile, kindle, ipad, map, Google, world, charger, map, geolocation">
+    <meta name="robots" content="all">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" href="assets/img/favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="assets/img/favicons/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
 
-			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 
     <!--Font Awesome-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
-			<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-			<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>      
-           </head>
-           <body>
-            <div data-role="page" id="pg-home">
-             <div data-role="header" data-nobackbtn="true">
-             <img alt=logo height=30 src=assets/img/logo-200x154.png style="float:left; padding:5px;">
-             <h1>Charles</h1><a href="#page1" data-role="button" data-icon="info" class="ui-btn-right">about</a></div>
-             <div data-role="content" data-inset="true">
-              <b>BETA</b>
-             </div>
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+</head>
 
-
-
-
-             <div data-role="content" data-inset="true">
-              <ul data-role="listview" data-dividertheme="a" data-inset="true">
-               <li data-role="list-divider"><h1>Charles assists you to </h1></li>
-               <li>
-                <a href="#page2" rel="external"><h1> Share your business location <i class="fa fa-thumb-tack" aria-hidden="true"></i></h1><p> Join our estimated community </p></a>
-               </li>
-               <li>
-                <a href="#" rel="external"><h1> Great deals and gifts offering <i class="fa fa-gift" aria-hidden="true"></i></h1><p>from favorite venues</p></a>
-               </li>
-               <li>
-                <a href="charles-map.html" rel="external"><h1> Beautiful chargers spots <i class="fa fa-map-marker" aria-hidden="true"></i></h1>
-                <p>located near me </p></a>
-               </li>
-               <li data-theme="a">
-                <a href="http://m.me/1191719787527331" rel="external"><h1>Have a question?</h1><p>Like our FB page &amp; have a chat with Charles</p></a></li>
-               <li data-theme="a">
-                <!-- AddToAny BEGIN -->
-                            <a class="a2a_dd btn btn-default" href=""><h1>Sharing is caring <span class="fa fa-share "></span></h1><p>Spread the word on all the channels</p></a>
-                            <script type="text/javascript">
-                                var a2a_config = a2a_config || {};
-                                a2a_config.linkname = "Sharing is Caring. Check out Charles the chargers location butler";
-                                a2a_config.num_services = 6;
-                                a2a_config.prioritize = ["facebook", "twitter", "google_plus", "linkedin", "pinterest", "email"];
-                            </script>
-                            <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script></li>
-           </ul>
-          </div>
-         </div>
-         <div data-role="page" id="page1" data-inset="true">
-          <div data-role="header" data-theme="a"><h1>About</h1></div>
-          <div data-role="content" data-inset="true">
-           <div>
-             Charles is your mobile charger locator butler developed by
-            <a href="http://desireyavro.com">desireyavro</a>. Feel free to contact with feedback.
-          </div>
-          <ul data-role="listview" data-dividertheme="a" data-inset="true">
-           <li><a href="https://drive.google.com/open?id=0B27h2BZXrfSgeExWZUFaUlpSSDg" rel="external">Team</a></li>
-           <li><a href="https://script.google.com/macros/s/AKfycbzTQCssIwGT64Za0h1w0CY-2-VAgXyeYI7SpFEkboH7/dev">add / correct your location</a></li>
-           <li><a href="http://www.charles.co/privacy-policy/" rel="external">privacy policy</a></li>
-           <li data-role="list-divider">contact/follow us</li>
-           <li><a href="http://www.charles.co/blog" rel="external">blog</a></li>
-           <li><a href="http://m.facebook.com/charlesthebutler" rel="external">facebook</a></li>
-           <li><a href="mailto:me@charles.co" rel="external">e-mail</a></li>
-           <li><a href="http://mobile.twitter.com/charlesthebutler" rel="external">twitter</a></li>
-           <li><a href="" rel="external">Copyright &copy; dnzengou 2016</a></li>
-          </ul>
-          </div>
+<body>
+    <div data-role="page" id="pg-home">
+        <div data-role="header" data-nobackbtn="true">
+            <img alt="logo" height="30" src="assets/img/logo-200x154.png" style="float:left; padding:5px;">
+            <h1>Charles</h1><a href="#page1" data-role="button" data-icon="info" class="ui-btn-right">about</a></div>
+        <div data-role="content" data-inset="true">
+            <b>BETA</b>
         </div>
 
-        <div data-role="page" id="page2" data-inset="true">
-          <div data-role="header" data-theme="a"><h1>My location</h1></div>
-          <div data-role="content" data-inset="true">
 
-    <p id="error" style="color:#f00; font-weight:bold;"></p>
-    <form id="location" action="/index.php" method="post" autocomplete="off">
-      <input type="hidden" name="batt" id="batt" value="-1" readonly="readonly">
-      <input type="hidden" name="time" id="time" readonly="readonly">
-      <p id="loading">Requesting access / Loading location data...</p>
-      <div id="geolocation" style="display:none;">
-        <div>
-          <label for="lat">Latitude :</label>
-          <input type="text" name="lat" id="lat" readonly="readonly">
-        </div>
-        <div>
-          <label for="lng">Longitude :</label>
-          <input type="text" name="lng" id="lng" readonly="readonly">
-        </div>
-        <div>
-          <label for="acc">Accuracy (m.) :</label>
-          <input type="text" name="acc" id="acc" readonly="readonly">
-        </div>
-        <div>
-          <label>Address :</label><br>
-          <address id="addr"></address>
-        </div>
-        <div id="send">
-          <button type="submit" name="action" value="send">SEND NOW</button>
-        </div>
-      </div>
-    </form>
-    <p class="legal">* Irresponsible use of this geolocation service is punishable under federal law.</p>
-  </div>
-  <script>
-    function init() {
-      if ('geolocation' in navigator) {
-        navigator.geolocation.watchPosition(function(position) {
-          document.getElementById('loading').style.display = 'none';
-          document.getElementById('geolocation').style.display = '';
 
-          console.log(position);
 
-          document.getElementById('time').value = position.timestamp;
-          document.getElementById('lat').value = Math.round(position.coords.latitude  * 1000000) / 1000000;
-          document.getElementById('lng').value = Math.round(position.coords.longitude * 1000000) / 1000000;
-          document.getElementById('acc').value = Math.round(position.coords.accuracy * 10) / 10;
+        <div data-role="content" data-inset="true">
+            <ul data-role="listview" data-dividertheme="a" data-inset="true">
+                <li data-role="list-divider">
+                    <h1>With Charles you can </h1>
+                </li>
+                <li>
+                    <a href="#page2" rel="external">
+                        <h1> Check and share your location <i class="fa fa-thumb-tack" aria-hidden="true"></i></h1>
+                        <p> Join the community! </p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" rel="external">
+                        <h1> Great deals and gifts offering <i class="fa fa-gift" aria-hidden="true"></i></h1>
+                        <p>(Coming soon!)</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="charles-map.html" rel="external">
+                        <h1> Use the map! <i class="fa fa-map-marker" aria-hidden="true"></i></h1>
+                        <p></p>
+                    </a>
+                </li>
+                <li data-theme="a">
+                    <a href="http://m.me/1191719787527331" rel="external">
+                        <h1>Have a question?</h1>
+                        <p>Like our FB page &amp; have a chat!</p>
+                    </a>
+                </li>
+                <li data-theme="a">
+                    <!-- AddToAny BEGIN -->
+                    <a class="a2a_dd btn btn-default" href="">
+                        <h1>Sharing is caring <span class="fa fa-share "></span></h1>
+                        <p>Spread the word on all the channels</p>
+                    </a>
+                    <script type="text/javascript">
+                        var a2a_config = a2a_config || {};
+                        a2a_config.linkname = "Sharing is Caring. Check out Charles the chargers location butler";
+                        a2a_config.num_services = 6;
+                        a2a_config.prioritize = ["facebook", "twitter", "google_plus", "linkedin", "pinterest", "email"];
+                    </script>
+                    <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="page" id="page1" data-inset="true">
+        <div data-role="header" data-theme="a">
+            <h1>About</h1>
+        </div>
+        <div data-role="content" data-inset="true">
+            <div>
+                <code>
+                Charles is your new lightweight map, quick of access and easy to use, it diplays the transports, traffic and satelite view. <br>
+                Developed by <a href="desireyavro.com" target="_blank">DesireYavro</a>
+              </code>
+            </div>
+            <ul data-role="listview" data-dividertheme="a" data-inset="true">
+                <li><a href="http://desireyavro.azurewebsites.net/profile.html#two" rel="external">Who I Am</a></li>
+                <li><a href="https://script.google.com/macros/s/AKfycbzTQCssIwGT64Za0h1w0CY-2-VAgXyeYI7SpFEkboH7/dev" target="_blank">Add / correct your location</a></li>
+                <li><a href="http://www.charles.co/privacy-policy/" target="_blank" rel="external">Privacy policy</a></li>
+                <li data-role="list-divider">OTHER</li>
+                <li><a href="http://apijam.eu" target="_blank" rel="external">Apijam.eu</a></li>
+                <li><a href="http://apijam.azurewebsites.net/map.html" target="_blank" rel="external">Driving / Walking / Biking/ Transit map</a></li>
+                <li><a href="http://desireyavro.com">Copyright &copy; desireyavro 2017</a></li>
+            </ul>
+        </div>
+    </div>
 
-          var geocoder = new google.maps.Geocoder;
-          geocoder.geocode({'location': {lat: position.coords.latitude, lng: position.coords.longitude} }, function(results, status) {
-            //console.log(results, status);
-            if (status === google.maps.GeocoderStatus.OK) {
-              document.getElementById('addr').innerText = results[0].formatted_address;
+    <div data-role="page" id="page2" data-inset="true">
+        <div data-role="header" data-theme="a">
+            <h1>My location</h1>
+        </div>
+        <div data-role="content" data-inset="true">
+
+            <p id="error" style="color:#f00; font-weight:bold;"></p>
+            <form id="location" action="/index.php" method="post" autocomplete="off">
+                <input type="hidden" name="batt" id="batt" value="-1" readonly="readonly">
+                <input type="hidden" name="time" id="time" readonly="readonly">
+                <p id="loading">Requesting access / Loading location data...</p>
+                <div id="geolocation" style="display:none;">
+                    <div>
+                        <label for="lat">Latitude :</label>
+                        <input type="text" name="lat" id="lat" readonly="readonly">
+                    </div>
+                    <div>
+                        <label for="lng">Longitude :</label>
+                        <input type="text" name="lng" id="lng" readonly="readonly">
+                    </div>
+                    <div>
+                        <label for="acc">Accuracy (m.) :</label>
+                        <input type="text" name="acc" id="acc" readonly="readonly">
+                    </div>
+                    <div>
+                        <label>Address :</label><br>
+                        <address id="addr"></address>
+                    </div>
+                    <div id="send">
+                        <button type="submit" name="action" value="send">SEND NOW</button>
+                    </div>
+                </div>
+            </form>
+            <p class="legal">* Irresponsible use of this geolocation service is punishable under federal law.</p>
+        </div>
+        <script>
+            function init() {
+                if ('geolocation' in navigator) {
+                    navigator.geolocation.watchPosition(function(position) {
+                            document.getElementById('loading').style.display = 'none';
+                            document.getElementById('geolocation').style.display = '';
+
+                            console.log(position);
+
+                            document.getElementById('time').value = position.timestamp;
+                            document.getElementById('lat').value = Math.round(position.coords.latitude * 1000000) / 1000000;
+                            document.getElementById('lng').value = Math.round(position.coords.longitude * 1000000) / 1000000;
+                            document.getElementById('acc').value = Math.round(position.coords.accuracy * 10) / 10;
+
+                            var geocoder = new google.maps.Geocoder;
+                            geocoder.geocode({
+                                'location': {
+                                    lat: position.coords.latitude,
+                                    lng: position.coords.longitude
+                                }
+                            }, function(results, status) {
+                                //console.log(results, status);
+                                if (status === google.maps.GeocoderStatus.OK) {
+                                    document.getElementById('addr').innerText = results[0].formatted_address;
+                                }
+                            });
+                        },
+                        function(error) {
+                            document.getElementById('loading').remove();
+                            document.getElementById('error').innerText = error.message;
+                        }, {
+                            enableHighAccuracy: true,
+                            timeout: 10 * 1000,
+                            maximumAge: 5 * 60 * 1000
+                        });
+                } else {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('error').innerText = 'Le service de géolocalisation n\'est pas disponible sur votre ordinateur. / Geolocation service not available on your device.';
+                }
+
+                if ('battery' in navigator) {
+                    navigator.getBattery().then(function(battery) {
+                        //console.log(battery);
+                        document.getElementById('batt').value = battery.level;
+                    });
+                }
             }
-          });
-        },
-        function(error) {
-          document.getElementById('loading').remove();
-          document.getElementById('error').innerText = error.message;
-        },
-        {
-          enableHighAccuracy: true,
-          timeout: 10*1000,
-          maximumAge: 5*60*1000
-        });
-      } else {
-        document.getElementById('loading').style.display = 'none';
-        document.getElementById('error').innerText = 'Le service de géolocalisation n\'est pas disponible sur votre ordinateur. / Geolocation service not available on your device.';
-      }
-
-      if ('battery' in navigator) {
-        navigator.getBattery().then(function(battery) {
-          //console.log(battery);
-          document.getElementById('batt').value = battery.level;
-        });
-      }
-    }
-  </script>
+        </script>
 
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsbzuJDUEOoq-jS1HO-LUXW4qo0gW9FNs&amp;language=en&amp;callback=init" async defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsbzuJDUEOoq-jS1HO-LUXW4qo0gW9FNs&amp;language=en&amp;callback=init" async defer></script>
 
 
-<!--<script>
+        <!--<script>
 	// Google Analytics tracker
 
   //var _gaq=[['_setAccount','UA-19887300-3'],['_trackPageview']];
@@ -180,18 +208,25 @@
 	//s.parentNode.insertBefore(g,s)}(document,'script'));
 </script> -->
 
-<!-- google analytics -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        <!-- google analytics -->
+        <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-78251189-1', 'auto');
-  ga('send', 'pageview');
+            ga('create', 'UA-78251189-1', 'auto');
+            ga('send', 'pageview');
+        </script>
 
-</script>
 
+</body>
 
-</body> 
 </html>
