@@ -44,29 +44,54 @@
 
     <!-- style map -->
     <style>
+        html,
         body {
+            height: 100%;
             padding: 0;
             margin: 0;
         }
         
-        html,
-        body,
         #map {
             height: 100%;
-        }
-    </style>
-
-
-    <style>
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
         }
         
-        #map {
-            height: 100%;
+        #menu {
+            position: absolute;
+            background: transparent;
+            padding: 10px;
+            font-family: 'Open Sans', sans-serif;
+            /*top: 140px;
+            right: 10px;*/
+            bottom: 40px;
+            left: 10px;
+            z-index: 1;
+            border-radius: 3px;
+            width: 240px;
+            border: 0px solid rgba(0, 0, 0, 0.4);
+        }
+        
+        .dropdown-hover {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 60px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
     </style>
 
@@ -74,7 +99,8 @@
         </script>-->
 
     <!--Google maps API linl-->
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCsbzuJDUEOoq-jS1HO-LUXW4qo0gW9FNs&amp;sensor=true&amp;language=en&amp;signed_in=true"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCsbzuJDUEOoq-jS1HO-LUXW4qo0gW9FNs&amp;language=en"></script>
+    <!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCsbzuJDUEOoq-jS1HO-LUXW4qo0gW9FNs&amp;sensor=true&amp;language=en&amp;signed_in=true"></script>-->
 
 
     <script type="text/javascript" src="assets/js/fusiontips.js">
@@ -175,8 +201,8 @@
             var bikeLayer = new google.maps.BicyclingLayer();
             bikeLayer.setMap(map);
 
-            //var trafficLayer = new google.maps.TrafficLayer();
-            //trafficLayer.setMap(map);
+            var trafficLayer = new google.maps.TrafficLayer();
+            trafficLayer.setMap(map);
 
 
             loadMap();
@@ -186,22 +212,6 @@
 </head>
 
 <body onload="initialize();">
-
-
-    <style>
-        #menu {
-            position: absolute;
-            background: transparent;
-            padding: 10px;
-            font-family: 'Open Sans', sans-serif;
-            top: 140px;
-            right: 10px;
-            z-index: 1;
-            border-radius: 3px;
-            width: 240px;
-            border: 0px solid rgba(0, 0, 0, 0.4);
-        }
-    </style>
 
     <br>
     <br>
@@ -220,34 +230,64 @@
 
                 <div class="nav-collapse">
                     <ul class="nav nav-pills">
-                        <li class="dropdown hidden-phone hidden-tablet">
-                            <a class="dropdown-toggle data-toggle=dropdown" href="#">
+                        <!--<li class="dropdown hidden-phone hidden-tablet">-->
+                        <li class="dropdown">
+                            <!--<a class="dropdown-toggle data-toggle=dropdown" href="#">
                                 <i class="icon-plus-sign icon-white"></i> More
-                                <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="https://www.google.be/?gfe_rd=cr&ei=s4IwV9LmNa-LtgeL9IbwCQ#q=traffic"><i class="fa fa-globe fa-x" aria-hidden="true"></i> chargemesoftly website</a></li>
-                            </ul>
-                            <li class="dropdown hidden-phone hidden-tablet">
-                                <a class="dropdown-toggle data-toggle=dropdown" href="#">
-                                    <i class="icon-pencil icon-white"></i> Menu
-                                    <b class="caret"></b>
+                                <li>
+                                    <a href="https://www.google.be/?gfe_rd=cr&ei=s4IwV9LmNa-LtgeL9IbwCQ#q=traffic"><i class="fa fa-globe fa-x" aria-hidden="true"></i> </a>
+                                </li>
+                            </ul>-->
+
+                            <li class="dropdown">
+                                <a class="dropdown-hover">
+                                    <span style="color:darkgrey"><i class="icon-plus-sign icon-white"></i> More</span>
+                                    <ul class="dropdown-content">
+                                        <ol>
+                                            <a href="http://charles-preso.azurewebsites.net/#/" target="_blank" style="color:#000" title="chargemesofly preso"><i class="fa fa-list fa-x" aria-hidden="true"></i> </a>
+                                        </ol>
+                                        <ol>
+                                            <a href="http://chargemesoftly-website.azurewebsites.net/" target="_blank" style="color:#000" title="chargemesofly website"><i class="fa fa-globe fa-x" aria-hidden="true"></i></a>
+                                        </ol>
+                                    </ul>
+                                </a>
+                            </li>
+
+                            <!--<li class="dropdown hidden-phone hidden-tablet">-->
+                            <li class="dropdown">
+
+                                <a class="dropdown-hover">
+                                    <span style="color:darkgrey"><i class="icon-bookmark icon-white" aria-hidden="true"></i> Menu</span>
+                                    <ul class="dropdown-content">
+                                        <ol>
+                                            <a href="index.html" target="_blank" style="color:#000" title="home"><i class="fa fa-home fa-x" aria-hidden="true"></i></a>
+                                        </ol>
+                                        <ol>
+                                            <a href="http://m.me/startupmeifyoucan" target="_blank" style="color:#000" title="fb message me"><i class="fa fa-comments-o fa-x" aria-hidden="true"></i></a>
+                                        </ol>
+                                    </ul>
+                                </a>
+
+                                <!--<a class="dropdown-toggle data-toggle=dropdown" href="#">
+                                    <i class="icon-bookmark icon-white" aria-hidden="true"></i> Menu
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li style="margin-left:15px"><a href="index.html"><i class="fa fa-home fa-x" aria-hidden="true"></i></a></li>
+                                    <li style="margin-left:15px"><a href="index.html" target="_blank" style="color:#000"><i class="fa fa-home fa-x" aria-hidden="true"></i></a></li>
                                     <li class="divider"></li>
                                     <li class="divider"></li>
-                                    <li style="margin-left:15px"><a href="https://twitter.com/DesireYavro" class="twitter-follow-button" data-show-count="true">Follow me</a></li>
+                                    <!--<li style="margin-left:15px"><a href="https://twitter.com/DesireYavro" class="twitter-follow-button" data-show-count="true">Follow me</a></li>
                                     <li class="divider"></li>
-                                    <li style="margin-left:15px"><a href="http://m.me/startupmeifyoucan">Message Charles</a></li>
+                                    <li style="margin-left:15px"><a href="http://m.me/startupmeifyoucan" target="_blank" style="color:#000"><i class="fa fa-comments-o fa-x" aria-hidden="true"></i></a></li>
                                     <li class="divider"></li>
                                     <li style="margin-left:15px"><a href="http://desireyavro.com"> &copy; desireyavro 2017</a></li>
-                                </ul>
+                                </ul>-->
                             </li>
 
                             <li>
                                 <div class="btn-group">
-                                    <a class="btn btn-primary btn-small alignleft tooltip_bottom" href="index.html#page2" style="margin-left:5px;" title="Home">
+                                    <a class="btn btn-primary btn-small alignleft tooltip_bottom" href="index.html#page2" style="margin-left:5px;" title="My location">
                                         <i class="fa fa-map-marker"></i>
                                         <!--"icon-home icon-white"-->
                                     </a>
